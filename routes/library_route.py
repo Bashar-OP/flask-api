@@ -81,6 +81,21 @@ def update_library_route(id):
         return jsonify(f"Something went wrong \n {e}"), status.HTTP_INTERNAL_SERVER_ERROR
     
 
+@main.route('/library/<int:id>/books')
+def filter_books(id: int):
+    try:
+        libraries = get_libraries(id)
+
+        if not libraries:
+            return jsonify("library not found"), status.HTTP_NOT_FOUND
+        
+        if not libraries[0].books:
+            return jsonify("No books in the library"), status.HTTP_NOT_FOUND
+
+        return jsonify([book.to_dict() for book in libraries[0].books]), status.HTTP_OK
+
+    except Exception as e:
+        return jsonify(f"Something went wrong \n {e}"), status.HTTP_INTERNAL_SERVER_ERROR
 
 
 

@@ -1,10 +1,22 @@
+from sqlalchemy import or_
 from models import Book,Library
 from extensions import db
 
 
-def get_books(id:int | None = None)-> list[Book]:
-    if id is None:
+def get_books(id:int | None = None,
+              title:str | None = None,
+              author:str | None = None)-> list[Book]:
+    
+    if id is None or title is None or author is None:
         return Book.query.all()
+    if title is not None or author is not None:
+        query = Book.query.filter(
+    or_(
+        Book.title == title,
+        Book.author == author
+    ))
+        return query.all()
+
     book = db.session.get(Book, id)
     return [book] if book else []
 

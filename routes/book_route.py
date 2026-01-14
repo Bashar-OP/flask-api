@@ -8,7 +8,10 @@ from routes.init import main
 @main.route('/book')
 def list_books():
     try:
-        books = get_books()
+        title = request.args.get("title")
+        author = request.args.get("author")
+
+        books = get_books(title=title,author=author)
 
         if not books:
             return jsonify("No books found"), status.HTTP_NOT_FOUND
@@ -83,3 +86,5 @@ def update_book_route(id):
     except Exception as e:
         return jsonify(f"Something went wrong \n {e}"), status.HTTP_INTERNAL_SERVER_ERROR
     
+
+
