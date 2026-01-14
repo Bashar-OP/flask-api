@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Library Page</title>
+   </head>
+   <body>
+      <h3>Books in {{library.name}}</h3>
+      <br>
+      <table>
+         <thead>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
+         </thead>
+         {% for data in library.books %}
+         <tbody>
+            <td>{{data.id}}</td>
+            <td>{{data.title}}</td>
+            <td>{{data.author}}</td>
+         </tbody>
+         {% endfor%}
+      </table>
+      <hr>
+      <p>number of books: {{library.books | length}}</p>
+   </body>
+</html>

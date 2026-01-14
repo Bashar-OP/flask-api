@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Library Page</title>
+   </head>
+   <body>
+      <h3>Libraries</h3>
+      <a href="/library/add">ADD</a>
+      <br>
+      <table>
+         <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Books</th>
+            <th>#</th>
+            <th>#</th>
+         </thead>
+         {% for data in libraries %}
+         <tbody>
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.books}}</td>
+            <td><a href="/library/delete/{{data.id}}" type="button">Delete</a></td>
+            <td><a href="/library/update/{{data.id}}" type="button">Update</a></td>
+
+         </tbody>
+         {% endfor%}
+      </table>
+   </body>
+</html>

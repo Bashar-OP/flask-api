@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>User Page</title>
+   </head>
+   <body>
+      <h3>Users</h3>
+      <a href="/user/add">ADD</a>
+      <br>
+      <table>
+         <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>library id</th>
+            <th>#</th>
+            <th>#</th>
+         </thead>
+         {% for data in users %}
+         <tbody>
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.library_id}}</td>
+            <td><a href="/user/delete/{{data.id}}" type="button">Delete</a></td>
+            <td><a href="/user/update/{{data.id}}" type="button">Update</a></td>
+
+         </tbody>
+         {% endfor%}
+      </table>
+   </body>
+</html>

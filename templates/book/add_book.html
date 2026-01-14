@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Add Book</title>
+   </head>
+   <body>
+      <h3>Book form</h3>
+      <form action="/book/add" method="POST">
+         <label>Title</label>
+         <input type="text" name= "title" placeholder="title..." value="{{data.title}}">
+         <label>Author</label>
+         <input type="text" name= "author" placeholder="author..." value="{{data.author}}">
+         <label>library Id</label>
+         <input type="text" name= "library_id" placeholder="library id..." value="{{data.library_id}}">
+         <button type="submit">Add</button>
+      </form>
+      {% if error != '' %}
+         <hr>
+         <p>- {{error}}</p>
+      {% endif %}
+   </body>
+</html>
