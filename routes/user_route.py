@@ -78,7 +78,7 @@ def update_user_route(id):
         if updated_user is None:
             return jsonify("User not found"), status.HTTP_NOT_FOUND
 
-        return jsonify(f'library {updated_user.id} updated') , status.HTTP_OK
+        return jsonify(f'user {updated_user.id} updated') , status.HTTP_OK
     except Exception as e:
         return jsonify(f"Something went wrong \n {e}"), status.HTTP_INTERNAL_SERVER_ERROR
     

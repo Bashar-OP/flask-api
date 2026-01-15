@@ -1,6 +1,7 @@
 
 # conftest.py
 import pytest
+from extensions import db
 
 @pytest.fixture
 def app():
@@ -12,3 +13,8 @@ def app():
 @pytest.fixture
 def client(app):
     return app.test_client()
+
+
+
+
+

@@ -46,7 +46,7 @@ def validate_user_data(data,mode='add'):
     errors = []
     
     if mode != 'update':
-        if data['name'] is None:
+        if not data['name']:
             errors.append( 'name is empty')
 
     if data['library_id'] is not None:
